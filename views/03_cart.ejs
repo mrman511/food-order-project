@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cart</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+    <nav id="nav">
+      <div class="btn-pay"></div>
+    </nav>
+
+    <h1>My Cart List</h1>
+    <div>
+      <div id="cart-food"></div>
+      <div id="cart-food"></div>
+      <div id="cart-food"></div>
+    </div>
+    <div>
+      <h5>TOTAL</h5>
+      <h6>$80.00</h6>
+    </div>
+    <form action="/pay" method="GET">
+      <button class="checkout-button" type="submit">CHECKOUT</button>
+    </form>
+  </body>
+</html>

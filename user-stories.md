@@ -27,5 +27,8 @@
 -get home page
 
 ## Wireframes
-
+-Homepage
+-shopping cart
+-menu 
+-order confirmation/checkout page
 

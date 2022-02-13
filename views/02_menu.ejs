@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Menu</title>
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
+
+    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+  </head>
+
+  <body>
+    <nav id="nav">
+      <form action="/cart" method="GET">
+        <label>Go To</label>
+        <button type="submit">CART</button>
+      </form>
+    </nav>
+    <!-- following section is to display indevidual food items -->
+    <main>
+
+      <form class="menu-item" action = "\menu" method = "post">
+        <div class = "food-item-header">
+          <img src="https://www.simplyhappyfoodie.com/wp-content/uploads/2018/11/instant-pot-baked-potato-3.jpg"> <!-- this will be the image for the item -->
+          <div>
+            <h3>Baked Potato</h3>
+            <p>Twice Baked potato, cooked to perfection. Made to order with the topping of your choice!
+              The topping options include: butter, sour cream, chives, green onion, bacon, and cheddar cheese.
+            </p>
+          </div>
+
+        </div>
+        <div class = "food-item-footer">
+          <h4>$11.99</h4>
+          <div>
+            <button class= "increment-food" type = "submit"> + </button>
+            <br>
+            <output name = "counter" class = "counter">#</output>
+            <br>
+            <button class= "increment-food" type = "delete"> - </botton>
+          </div>
+
+        </div>
+      </form>
+
+      <form class="menu-item" action = "\menu" method = "post">
+        <div class = "food-item-header">
+          <img src="https://www.simplyhappyfoodie.com/wp-content/uploads/2018/11/instant-pot-baked-potato-3.jpg"> <!-- this will be the image for the item -->
+          <div>
+            <h3>Baked Potato</h3>
+            <p>Twice Baked potato, cooked to perfection. Made to order with the topping of your choice!
+              The topping options include: butter, sour cream, chives, green onion, bacon, and cheddar cheese.
+            </p>
+          </div>
+
+        </div>
+        <div class = "food-item-footer">
+          <h4>$11.99</h4>
+          <div>
+            <button class= "increment-food" type = "submit"> + </button>
+            <br>
+            <output name = "counter" class = "counter">#</output>
+            <br>
+            <button class= "increment-food" type = "delete"> - </botton>
+          </div>
+
+        </div>
+      </form>
+
+    </main>
+  </body>
+</html>

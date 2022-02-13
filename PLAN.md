@@ -27,5 +27,3 @@
 -get home page
 
 ## Wireframes
-
-

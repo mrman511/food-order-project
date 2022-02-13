@@ -1,0 +1,4 @@
+-- bytea('/home/samkb420/Pictures/Sam Pics/sam.png')
+INSERT INTO food (image, title, category, description, price) VALUES ('https://s3.us-east-1.amazonaws.com/assets.mapleleaffarms.com/content/_1200x630_crop_center-center_82_none/Pulled-Duck-Poutine-with-Duck-Fat-Fries.jpg?mtime=1605380886','Roasted Duck Poutine', 'main', 'French fries topped with duck confit, bacon, green onion, cheese curds and gravy', 21);
+
+INSERT INTO food (image, title, category, description, price) VALUES ('https://hips.hearstapps.com/del.h-cdn.co/assets/18/08/2048x1024/landscape-1519322205-potatoes-au-gratin-horizontal.jpg?resize=1200:*','Potato Caserol', 'main', 'Baked Potatoes are scooped out and mashed to create super creamy Mashed Potatoes… we then add in our favorite potato toppings including crispy bacon, cheddar cheese, sour cream and green onions.', 24);

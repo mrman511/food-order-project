@@ -2,7 +2,6 @@ INSERT INTO food (image, title, category, description, price) VALUES ( 'https://
 
 INSERT INTO food (image, title, category, description, price) VALUES ( 'https://cookeatpaleo.com/wp-content/uploads/2013/08/peach-coconut-smoothie-680x950-680x950.jpg', 'Coconut Smoothie', 'drinks', 'Smoothie made with coconuts', 1.50);
 
-
 INSERT INTO food (image, title, category, description, price) VALUES ('https://media.istockphoto.com/photos/classic-cocacola-can-picture-id465133878?k=20&m=465133878&s=612x612&w=0&h=vgcvEz4ts5WZQOhKMaKon8mIQVbr20-JhP7DKgo_wD0=','Coca Cola', 'drinks', 'Can of Coca Cola', 3);
 
 INSERT INTO food (image, title, category, description, price) VALUES ('https://whistlerdinein.com/wp-content/uploads/2020/05/Sprite-e1537139444640.jpg','Sprite', 'drinks', 'Can of Sprite', 3);

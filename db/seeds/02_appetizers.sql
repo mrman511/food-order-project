@@ -1,15 +1,10 @@
-<<<<<<< HEAD
-INSERT INTO food (image, title, category, description, price) VALUES ('https://www.cleaneatingmag.com/wp-content/uploads/2013/11/chilli-cheese-fries.jpg?crop=4:3&width=1600','Chilli cheese fries', 'appetizer', 'Our famous chilli, hand cut, cheese fries. Topped with sour cream, green onion, and real bacon bits', 14);
 
-INSERT INTO food (image, title, category, description, price) VALUES ('https://keviniscooking.com/wp-content/uploads/2020/05/Fried-Pickle-Spears-square.jpg','Deep Fried Pickles', 'appertizer', 'Delicious deep fried crispy pickles. Your hang over ends now.', 12);
-=======
-INSERT INTO food (id, image, title, category, description, price) VALUES (3, image, 'Deep fried spiral-cut whole potato on a skewer', 6.99);
+INSERT INTO food (image, title, category, description, price) VALUES ('https://www.cleaneatingmag.com/wp-content/uploads/2013/11/chilli-cheese-fries.jpg?crop=4:3&width=1600','Chilli cheese fries', 'appetizers', 'Our famous chilli, hand cut, cheese fries. Topped with sour cream, green onion, and real bacon bits', 14);
 
-INSERT INTO food (id, image, title, category, description, price) VALUES (4, image, 'Potato Salad', 'Appetizers', 'Boiled potatoes with a variety of other salad ingredients', 5.99);
-
-INSERT INTO food (image, title, category, description, price) VALUES ('https://www.cleaneatingmag.com/wp-content/uploads/2013/11/chilli-cheese-fries.jpg?crop=4:3&width=1600','Chilli cheese fries', 'appetizer', 'Our famous chilli, hand cut, cheese fries. Topped with sour cream, green onion, and real bacon bits', 14);
-
-INSERT INTO food (image, title, category, description, price) VALUES ('https://keviniscooking.com/wp-content/uploads/2020/05/Fried-Pickle-Spears-square.jpg','Deep Fried Pickles', 'appertizer', 'Delicious deep fried crispy pickles. Your hang over ends now.', 12);
+INSERT INTO food (image, title, category, description, price) VALUES ('https://keviniscooking.com/wp-content/uploads/2020/05/Fried-Pickle-Spears-square.jpg','Deep Fried Pickles', 'appertizers', 'Delicious deep fried crispy pickles.', 12);
 
 
->>>>>>> f1a1c0f69cb5c2237753bb0544205f1c581b82a0
+INSERT INTO food (image, title, category, description, price) VALUES ( 'https://img.buzzfeed.com/video-api-prod/assets/a1f17189a78c4004acb92bdf092dc711/BFV12958_TornadoPotato-ThumbTextless1080.jpg', 'Tornado Potato', 'appetizers', 'Deep fried spiral-cut whole potato on a skewer', 6.99);
+
+INSERT INTO food (image, title, category, description, price) VALUES ( 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/potato-salad-with-vinaigrette-1613060061.jpg?crop=0.813xw:0.791xh;0.107xw,0.0778xh&resize=640:*', 'Potato Salad', 'appetizers', 'Boiled potatoes with a variety of other salad ingredients', 5.99);
+

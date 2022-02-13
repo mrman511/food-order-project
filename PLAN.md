@@ -19,11 +19,32 @@
 
 
 ## Routes
--get food items for menu
--post food items to shopping cart
--post wait time from time order placed
--get thanks for shoping
--delete food items from shopping cart
--get home page
+<!-- menu -->
+-get food items by category for menu
+  -get route for drinks
+  -get route for appetizers
+  -get route for main
+-get route to cart
+
+-post food item to orders
+-post add increase counter
+
+-post delete food item from orders
+-post decrease counter
+
+<!-- cart -->
+-get menu
+-get food items from orders
+-get checkout
+
+-post food item to orders
+-post add increase counter
+
+-post delete food item from orders
+-post decrease counter
+
+<!-- checkout -->
+get payment
+post 
 
 ## Wireframes

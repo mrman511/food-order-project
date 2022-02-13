@@ -2,7 +2,7 @@
 require("dotenv").config();
 
 // Web server config
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
 const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
@@ -47,11 +47,26 @@ app.use("/api/widgets", widgetsRoutes(db));
 // Home page
 // Warning: avoid creating more routes in this file!
 // Separate them into separate routes files (see above).
-
+// GET Home
 app.get("/", (req, res) => {
-  res.render("index");
+  res.render("01_index");
 });
-
+//GET Menu
+app.get("/menu", (req, res) => {
+  res.render("02_menu");
+});
+// GET Shopping Cart
+app.get("/cart", (req, res) => {
+  res.render("03_cart");
+});
+// GET Pay
+app.get("/pay", (req, res) => {
+  res.render("04_pay");
+});
+// GET Order Confirmation
+app.get("/confirmation", (req, res) => {
+  res.render("05_confirmation");
+});
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

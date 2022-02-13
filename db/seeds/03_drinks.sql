@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 INSERT INTO food (id, image, title, category, description, price) VALUES (5, 'image', 'Potato Smoothie', 'drink', 'Smoothie made with potatoes', 3.50)
 INSERT INTO food (id, image, title, category, description, price) VALUES (6, 'image', 'Coconut Smoothie', 'drink', 'Smoothie made with coconuts', 1.50)
@@ -17,6 +18,10 @@ INSERT INTO food (id, image, title, category, description, price) VALUES (5, ima
 
 INSERT INTO food (image, title, category, description, price) VALUES ( 'https://shortgirltallorder.com/wp-content/uploads/2020/10/sweet-potato-smoothie-square-500x375.jpg', 'Potato Smoothie', 'drinks', 'Smoothie made with potatoes', 3.50);
 
+=======
+INSERT INTO food (image, title, category, description, price) VALUES ( 'https://shortgirltallorder.com/wp-content/uploads/2020/10/sweet-potato-smoothie-square-500x375.jpg', 'Potato Smoothie', 'drinks', 'Smoothie made with potatoes', 3.50);
+
+>>>>>>> d64aa30255afa92ce9bfde98de6b45c9ab01c11e
 INSERT INTO food (image, title, category, description, price) VALUES ( 'https://cookeatpaleo.com/wp-content/uploads/2013/08/peach-coconut-smoothie-680x950-680x950.jpg', 'Coconut Smoothie', 'drinks', 'Smoothie made with coconuts', 1.50);
 
 
@@ -38,9 +43,12 @@ INSERT INTO food (image, title, category, description, price) VALUES ('https://i
 
 
 INSERT INTO food (image, title, category, description, price) VALUES ('https://i5.walmartimages.ca/images/Enlarge/958/688/6000197958688.jpg','Chocolate Milk', 'drinks', 'Milk 2 Go Chocolate Milk Bottle', 4);
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
 INSERT INTO food (image, title, category, description, price) VALUES ('https://i5.walmartimages.ca/images/Enlarge/958/688/6000197958688.jpg','Chocolate Milk', 'drink', 'Milk 2 Go Chocolate Milk Bottle', 4);
 >>>>>>> 9c65a939dc944aefdef3e6913a483887ebac7bf6
 >>>>>>> Stashed changes
+=======
+>>>>>>> d64aa30255afa92ce9bfde98de6b45c9ab01c11e

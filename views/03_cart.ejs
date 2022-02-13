@@ -7,28 +7,70 @@
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
     <link rel="stylesheet" href="/styles/main.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/cart.css" type="text/css" />
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   </head>
 
   <body>
     <nav id="nav">
-      <div class="btn-pay"></div>
+      <i class="fa-solid fa-angle-left"></i>
     </nav>
 
-    <h1>My Cart List</h1>
-    <div>
-      <div id="cart-food"></div>
-      <div id="cart-food"></div>
-      <div id="cart-food"></div>
+    <h1 class="title">My <br> Cart List</h1>
+
+    <div class="cart-list-container">
+      <img src="../images/tornado_potato.jpeg" class="tornado-potato">
+      <div class="food-info">
+        <p><b>Name</b></p>
+        <p>Price</p>
+      </div>
+      <div class="icons">
+        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-minus"></i>
+      </div>
     </div>
-    <div>
-      <h5>TOTAL</h5>
-      <h6>$80.00</h6>
+
+    <div class="cart-list-container">
+      <img src="../images/tornado_potato.jpeg" class="tornado-potato">
+      <div class="food-info">
+        <p><b>Name</b></p>
+        <p>Price</p>
+      </div>
+      <div class="icons">
+        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-minus"></i>
+      </div>
     </div>
+
+    <div class="cart-list-container">
+      <img src="../images/tornado_potato.jpeg" class="tornado-potato">
+      <div class="food-info">
+        <p><b>Name</b></p>
+        <p>Price</p>
+      </div>
+      <div class="icons">
+        <i class="fa-solid fa-plus"></i>
+        <i class="fa-solid fa-minus"></i>
+      </div>
+    </div>
+
+    <div class="total-price">
+      <h4>TOTAL</h5>
+      <h5>$80.00</h6>
+    </div>
+
     <form action="/pay" method="GET">
-      <button class="checkout-button" type="submit">CHECKOUT</button>
+      <button class="checkout-button" type="submit">Checkout</button>
     </form>
+
   </body>
 </html>

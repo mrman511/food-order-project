@@ -1,7 +1,7 @@
 
 INSERT INTO food (image, title, category, description, price) VALUES ('https://www.cleaneatingmag.com/wp-content/uploads/2013/11/chilli-cheese-fries.jpg?crop=4:3&width=1600','Chilli cheese fries', 'appetizers', 'Our famous chilli, hand cut, cheese fries. Topped with sour cream, green onion, and real bacon bits', 14);
 
-INSERT INTO food (image, title, category, description, price) VALUES ('https://keviniscooking.com/wp-content/uploads/2020/05/Fried-Pickle-Spears-square.jpg','Deep Fried Pickles', 'appertizers', 'Delicious deep fried crispy pickles.', 12);
+INSERT INTO food (image, title, category, description, price) VALUES ('https://keviniscooking.com/wp-content/uploads/2020/05/Fried-Pickle-Spears-square.jpg','Deep Fried Pickles', 'appetizers', 'Delicious deep fried crispy pickles.', 12);
 
 
 INSERT INTO food (image, title, category, description, price) VALUES ('https://img.buzzfeed.com/video-api-prod/assets/a1f17189a78c4004acb92bdf092dc711/BFV12958_TornadoPotato-ThumbTextless1080.jpg', 'Tornado Potato', 'appetizers', 'Deep fried spiral-cut whole potato on a skewer', 6.99);

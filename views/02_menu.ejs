@@ -33,21 +33,23 @@
       </form>
     </nav>
     <!-- following section is to display indevidual food items -->
-    <main>
+    <main id = 'menu-items'>
+      <br id="menu-drinks">
 
+      <%for (let item in drinks) {%>
       <form class="menu-item" action = "\menu" method = "post">
         <div class = "food-item-header">
-          <img src="https://www.simplyhappyfoodie.com/wp-content/uploads/2018/11/instant-pot-baked-potato-3.jpg"> <!-- this will be the image for the item -->
+          <img src="<%= drinks[item].image %>"> <!-- this will be the image for the item -->
           <div>
-            <h3>Baked Potato</h3>
-            <p>Twice Baked potato, cooked to perfection. Made to order with the topping of your choice!
-              The topping options include: butter, sour cream, chives, green onion, bacon, and cheddar cheese.
+            <h3><%= drinks[item].title %></h3>
+            <p>
+              <%= drinks[item].description %>
             </p>
           </div>
 
         </div>
         <div class = "food-item-footer">
-          <h4>$11.99</h4>
+          <h4>$<%= drinks[item].price %></h4>
           <div>
             <button class= "increment-food" type = "submit"> + </button>
             <br>
@@ -58,31 +60,65 @@
 
         </div>
       </form>
+      <% } %>
 
-      <form class="menu-item" action = "\menu" method = "post">
-        <div class = "food-item-header">
-          <img src="https://www.simplyhappyfoodie.com/wp-content/uploads/2018/11/instant-pot-baked-potato-3.jpg"> <!-- this will be the image for the item -->
-          <div>
-            <h3>Baked Potato</h3>
-            <p>Twice Baked potato, cooked to perfection. Made to order with the topping of your choice!
-              The topping options include: butter, sour cream, chives, green onion, bacon, and cheddar cheese.
-            </p>
+      <br id = "menu-appetizers">
+
+      <%for (let item in appetizers)  {%>
+
+        <form class="menu-item" action = "\menu" method = "post">
+          <div class = "food-item-header">
+            <img src="<%= appetizers[item].image %>"> <!-- this will be the image for the item -->
+            <div>
+              <h3><%= appetizers[item].title %></h3>
+              <p>
+                <%= appetizers[item].description %>
+              </p>
+            </div>
+
           </div>
+          <div class = "food-item-footer">
+            <h4><%= appetizers[item].price %></h4>
+            <div>
+              <button class= "increment-food" type = "submit"> + </button>
+              <br>
+              <output name = "counter" class = "counter">#</output>
+              <br>
+              <button class= "increment-food" type = "delete"> - </botton>
+            </div>
 
-        </div>
-        <div class = "food-item-footer">
-          <h4>$11.99</h4>
-          <div>
-            <button class= "increment-food" type = "submit"> + </button>
-            <br>
-            <output name = "counter" class = "counter">#</output>
-            <br>
-            <button class= "increment-food" type = "delete"> - </botton>
           </div>
+        </form>
+         <% } %>
 
-        </div>
-      </form>
+        <br id = "menu-mains">
 
+        <% for (let item in mains) { %>
+        <form class="menu-item" action = "\menu" method = "post">
+          <div class = "food-item-header">
+            <img src="<%= mains[item].image %>g"> <!-- this will be the image for the item -->
+            <div>
+              <h3><%= mains[item].title %></h3>
+              <p>
+                <%= mains[item].description %>
+              </p>
+            </div>
+
+          </div>
+          <div class = "food-item-footer">
+            <h4>$<%= mains[item].price %></h4>
+            <div>
+              <button class= "increment-food" type = "submit"> + </button>
+              <br>
+              <output name = "counter" class = "counter">#</output>
+              <br>
+              <button class= "increment-food" type = "delete"> - </botton>
+            </div>
+
+          </div>
+        </form>
+
+      <% } %>
     </main>
   </body>
 </html>

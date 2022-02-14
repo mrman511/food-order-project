@@ -8,116 +8,136 @@
     <link rel="stylesheet" href="/styles/main.css" type="text/css" />
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
     <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
-
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
+    <script src="/scripts/menuJQ.js"></script>
   </head>
 
   <body>
     <nav id="nav">
-      <form class ='menu-organizer' action='/menu/drinks' method='get'>
-        <button>Drinks</button>
-      </form>
-
-      <form class ='menu-organizer' action='/menu/appitizers' method='get'>
-        <button>Appitizers</button>
-      </form>
-
-      <form class ='menu-organizer' action='/menu/mains' method='get'>
-        <button>Mains</button>
-      </form>
-
+      <button>Drinks</button>
+      <button>Appitizers</button>
+      <button>Mains</button>
       <form action="/cart" method="GET">
         <label>Go To</label>
         <button type="submit">CART</button>
       </form>
     </nav>
     <!-- following section is to display indevidual food items -->
-    <main id = 'menu-items'>
-      <br id="menu-drinks">
-
+    <main id="menu-items">
+      <!-- DRINK ITEMS -->
+      <br id="menu-drinks" />
       <%for (let item in drinks) {%>
-      <form class="menu-item" action = "\menu" method = "post">
-        <div class = "food-item-header">
-          <img src="<%= drinks[item].image %>"> <!-- this will be the image for the item -->
+      <article class="menu-item">
+        <div class="food-item-header">
+          <img src="<%= drinks[item].image %>" />
+          <!-- this will be the image for the item -->
           <div>
             <h3><%= drinks[item].title %></h3>
-            <p>
-              <%= drinks[item].description %>
-            </p>
+            <p><%= drinks[item].description %></p>
           </div>
-
         </div>
-        <div class = "food-item-footer">
+        <div class="food-item-footer">
           <h4>$<%= drinks[item].price %></h4>
           <div>
-            <button class= "increment-food" type = "submit"> + </button>
-            <br>
-            <output name = "counter" class = "counter">#</output>
-            <br>
-            <button class= "increment-food" type = "delete"> - </botton>
+            <form
+              id="<%= drinks[item].id %>-add"
+              class="add-food"
+              action="/menu/add/<%= drinks[item].id %>"
+              method="post"
+            >
+              <button id="add-btn" type="submit">+</button>
+            </form>
+            <br />
+            <output name="counter" class="counter">#</output>
+            <br />
+            <form
+              id="<%= drinks[item].id %>-minus"
+              class="minus-food"
+              action="/menu/minus/<%= drinks[item].id %>"
+              method="delete"
+            >
+              <button id="minus-btn" type="submit">-</button>
+            </form>
           </div>
-
         </div>
-      </form>
+      </article>
       <% } %>
-
-      <br id = "menu-appetizers">
-
-      <%for (let item in appetizers)  {%>
-
-        <form class="menu-item" action = "\menu" method = "post">
-          <div class = "food-item-header">
-            <img src="<%= appetizers[item].image %>"> <!-- this will be the image for the item -->
-            <div>
-              <h3><%= appetizers[item].title %></h3>
-              <p>
-                <%= appetizers[item].description %>
-              </p>
-            </div>
-
+      <!-- APPETIZER ITEMS -->
+      <br id="menu-appetizers" />
+      <%for (let item in appetizers) {%>
+      <article id="<%= appetizers[item].id %>" class="menu-item">
+        <div class="food-item-header">
+          <img src="<%= appetizers[item].image %>" />
+          <!-- this will be the image for the item -->
+          <div>
+            <h3><%= appetizers[item].title %></h3>
+            <p><%= appetizers[item].description %></p>
           </div>
-          <div class = "food-item-footer">
-            <h4><%= appetizers[item].price %></h4>
-            <div>
-              <button class= "increment-food" type = "submit"> + </button>
-              <br>
-              <output name = "counter" class = "counter">#</output>
-              <br>
-              <button class= "increment-food" type = "delete"> - </botton>
-            </div>
-
+        </div>
+        <div class="food-item-footer">
+          <h4><%= appetizers[item].price %></h4>
+          <div>
+            <form
+              id="<%= appetizers[item].id %>-add"
+              class="add-food"
+              action="/menu/add/<%= drinks[item].id %>"
+              method="post"
+            >
+              <button id="add-btn" type="submit">+</button>
+            </form>
+            <br />
+            <output name="counter" class="counter">#</output>
+            <br />
+            <form
+              id="<%= appetizers[item].id %>-minus"
+              class="minus-food"
+              action="/menu/minus/<%= drinks[item].id %>"
+              method="delete"
+            >
+              <button type="submit">-</button>
+            </form>
           </div>
-        </form>
-         <% } %>
-
-        <br id = "menu-mains">
-
-        <% for (let item in mains) { %>
-        <form class="menu-item" action = "\menu" method = "post">
-          <div class = "food-item-header">
-            <img src="<%= mains[item].image %>g"> <!-- this will be the image for the item -->
-            <div>
-              <h3><%= mains[item].title %></h3>
-              <p>
-                <%= mains[item].description %>
-              </p>
-            </div>
-
+        </div>
+      </article>
+      <% } %>
+      <!-- MAIN ITEMS -->
+      <br id="menu-mains" />
+      <% for (let item in mains) { %>
+      <article class="menu-item">
+        <div class="food-item-header">
+          <img src="<%= mains[item].image %>" />
+          <!-- this will be the image for the item -->
+          <div>
+            <h3><%= mains[item].title %></h3>
+            <p><%= mains[item].description %></p>
           </div>
-          <div class = "food-item-footer">
-            <h4>$<%= mains[item].price %></h4>
-            <div>
-              <button class= "increment-food" type = "submit"> + </button>
-              <br>
-              <output name = "counter" class = "counter">#</output>
-              <br>
-              <button class= "increment-food" type = "delete"> - </botton>
-            </div>
-
+        </div>
+        <div class="food-item-footer">
+          <h4>$<%= mains[item].price %></h4>
+          <div>
+            <form
+              id="<%= mains[item].id %>-add"
+              class="add-food"
+              action="/menu/add/<%= drinks[item].id %>"
+              method="post"
+            >
+              <button type="submit">+</button>
+            </form>
+            <br />
+            <output name="counter" class="counter">#</output>
+            <br />
+            <form
+              id="<%= mains[item].id %>-minus"
+              class="minus-food"
+              action="/menu/minus/<%= drinks[item].id %>"
+              method="delete"
+            >
+              <button type="submit">-</button>
+            </form>
           </div>
-        </form>
-
+        </div>
+      </article>
       <% } %>
     </main>
   </body>

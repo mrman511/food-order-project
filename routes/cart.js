@@ -21,22 +21,23 @@ module.exports = (db) => {
           .json({ error: err.message });
       });
   });
-  // router.get("/", (req, res) => {
-  //   const id = req.params.id;
-  //   db.query(`SELECT * FROM food;`)
-  //     .then((response) => {
-  //       const templateVars = {
-  //         name: response.rows.name,
-  //         price: response.rows
-  //       }
-  //       res.render('03_cart.ejs', templateVars);
-  //     })
-  //     .catch(err => {
-  //       res
-  //         .status(500)
-  //         .json({ error: err.message });
-  //     });
-  // });
+
+  router.get("/", (req, res) => {
+    const id = req.params.id;
+    db.query(`SELECT * FROM food;`)
+      .then((response) => {
+        const templateVars = {
+          name: response.rows.name,
+          price: response.rows.price
+        }
+        res.render('03_cart.ejs', templateVars);
+      })
+      .catch(err => {
+        res
+          .status(500)
+          .json({ error: err.message });
+      });
+  });
   return router;
 };
 

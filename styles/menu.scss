@@ -8,20 +8,27 @@ nav {
   position: fixed;
   background-color: rgb(211, 207, 207, 0);
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   align-items: center;
 }
 
 nav form {
   font-size: 1.5em;
   width: 150px;
-  margin-right: 10%;
+
+}
+
+.menu-organizer button {
+  height: 2em;
+  width: 150px;
+  border-radius: 3px;
 }
 
 button {
   color: white;
   background-color: rgb(0, 37, 202);
   border: none;
+  box-shadow: 2px 5px 7px black;
 }
 
 main {
@@ -87,4 +94,15 @@ main {
   font-size: 1.3em;
   width: 2em;
   border-radius: 3px;
+}
+
+button:hover {
+  background-color: rgb(72, 95, 197);
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+button:active {
+  transform: translateY(4px);
+  box-shadow: none;
 }

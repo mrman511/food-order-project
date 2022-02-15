@@ -35,18 +35,21 @@ app.use(express.static("public"));
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const usersRoutes = require("./routes/users");
+const confirmationRoutes = require("./routes/confirmation");
 const widgetsRoutes = require("./routes/widgets");
 const menuRoutes = require("./routes/menu");
+const cartRoutes = require("./routes/cart");
 
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
-app.use("/api/users", usersRoutes(db));
+
 app.use("/api/widgets", widgetsRoutes(db));
 
 
 app.use("/menu", menuRoutes(db));
+app.use("/cart", cartRoutes(db));
+app.use("/confirmation", confirmationRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -62,17 +65,17 @@ app.get("/menu", (req, res) => {
   res.render("02_menu");
 });
 // GET Shopping Cart
-app.get("/cart", (req, res) => {
-  res.render("03_cart");
-});
+// app.get("/cart", (req, res) => {
+//   res.render("03_cart");
+// });
 // GET Pay
 app.get("/pay", (req, res) => {
   res.render("04_pay");
 });
 // GET Order Confirmation
-app.get("/confirmation", (req, res) => {
-  res.render("05_confirmation");
-});
+// app.get("/confirmation", (req, res) => {
+//   res.render("05_confirmation");
+// });
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });

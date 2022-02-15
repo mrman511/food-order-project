@@ -1,43 +1,28 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into api/users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM food;`)
-      .then(data => {
+    console.log(req.params.id);
+    db.query(
+      `SELECT food.image as image,
+            food.title as title,
+            food.price as price
+    FROM orders
+    JOIN food_orders
+    ON orders.id = food_orders.order_id
+    JOIN food 
+    ON food.id = food_orders.order_id;`
+    )
+      .then((data) => {
         const food = data.rows;
-        res.json({ food });
+        res.render("03_cart", { food });
       })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
+      .catch((err) => {
+        res.status(500).json({ error: err.message });
       });
   });
 
-  router.get("/", (req, res) => {
-    const id = req.params.id;
-    db.query(`SELECT * FROM food;`)
-      .then((response) => {
-        const templateVars = {
-          name: response.rows.name,
-          price: response.rows.price
-        }
-        res.render('03_cart.ejs', templateVars);
-      })
-      .catch(err => {
-        res
-          .status(500)
-          .json({ error: err.message });
-      });
-  });
   return router;
 };
 

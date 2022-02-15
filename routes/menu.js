@@ -24,7 +24,11 @@ module.exports = (db) => {
         res.render("02_menu", { drinks, appetizers, mains });
       })
       .then(() => {
-        db.query(`INSERT INTO orders (user_id) VALUES (1) RETURNING id`);
+        return db.query(`INSERT INTO orders (user_id) VALUES (1) RETURNING id`);
+      })
+      .then((response) => {
+        //this gives us the order id so we can set a cookie
+        console.log(response);
       })
       .catch((err) => {
         res.status(500).json({ error: err.message });
@@ -43,7 +47,6 @@ module.exports = (db) => {
   });
 
   router.delete("/minus/:id", (req, res) => {
-    console.log("req:", req.params.id);
     const queryString = `DELETE FROM food_orders 
                         WHERE order_id = 1 
                         AND food_id = $1`;

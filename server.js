@@ -40,10 +40,12 @@ const widgetsRoutes = require("./routes/widgets");
 const menuRoutes = require("./routes/menu");
 const cartRoutes = require("./routes/cart");
 
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 
 app.use("/api/widgets", widgetsRoutes(db));
+
 
 app.use("/menu", menuRoutes(db));
 app.use("/cart", cartRoutes(db));

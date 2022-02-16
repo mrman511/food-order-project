@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/styles/menu.css" type="text/css" />
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
-    <script src="/scripts/menuJQ.js"></script>
+    <script type="text/javascript" src="/scripts/menuJQ.js"></script>
   </head>
 
   <body>
@@ -45,19 +45,23 @@
               class="add-food"
               action="/menu/add/<%= drinks[item].id %>"
               method="post"
+              name="<%= drinks[item].id %>"
             >
-              <button id="add-btn" type="submit">+</button>
+              <button id="add-btn" class="plus-button" type="submit">+</button>
             </form>
             <br />
-            <output name="counter" class="counter">#</output>
+            <output id="<%= drinks[item].id %>" name="counter" value="0" class="counter">0</output>
             <br />
             <form
               id="<%= drinks[item].id %>-minus"
               class="minus-food"
               action="/menu/minus/<%= drinks[item].id %>"
-              method="delete"
+              method="post"
+              name="<%= drinks[item].id %>"
             >
-              <button id="minus-btn" type="submit">-</button>
+              <button id="minus-btn" class="minus-button" type="submit">
+                -
+              </button>
             </form>
           </div>
         </div>
@@ -66,7 +70,7 @@
       <!-- APPETIZER ITEMS -->
       <br id="menu-appetizers" />
       <%for (let item in appetizers) {%>
-      <article id="<%= appetizers[item].id %>" class="menu-item">
+      <article class="menu-item">
         <div class="food-item-header">
           <img src="<%= appetizers[item].image %>" />
           <!-- this will be the image for the item -->
@@ -83,17 +87,19 @@
               class="add-food"
               action="/menu/add/<%= drinks[item].id %>"
               method="post"
+              name="<%= appetizers[item].id %>"
             >
               <button id="add-btn" type="submit">+</button>
             </form>
             <br />
-            <output name="counter" class="counter">#</output>
+            <output id="<%= appetizers[item].id %>" name="counter" class="counter">0</output>
             <br />
             <form
               id="<%= appetizers[item].id %>-minus"
               class="minus-food"
               action="/menu/minus/<%= drinks[item].id %>"
-              method="delete"
+              method="post"
+              name="<%= appetizers[item].id %>"
             >
               <button type="submit">-</button>
             </form>
@@ -121,17 +127,20 @@
               class="add-food"
               action="/menu/add/<%= drinks[item].id %>"
               method="post"
+              name="<%= mains[item].id %>"
             >
               <button type="submit">+</button>
             </form>
             <br />
-            <output name="counter" class="counter">#</output>
+            <output id="<%= mains[item].id %>" name="counter" class="counter">0</output>
             <br />
             <form
               id="<%= mains[item].id %>-minus"
               class="minus-food"
-              action="/menu/minus/<%= drinks[item].id %>"
-              method="delete"
+              action="/menu/minus/<%= mains[item].id %>"
+              method="post"
+              name="<%= mains[item].id%>"
+              ;
             >
               <button type="submit">-</button>
             </form>

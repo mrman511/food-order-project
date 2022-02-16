@@ -1,22 +1,59 @@
 $(document).ready(() => {
+  let currentCookie = undefined;
+
+  const fetchCounts = () => {
+    $.ajax({
+      url: `/menu/food_count`,
+      method: "GET",
+      success: (response) => {
+        for (let item in response) {
+          const $value = response[item].food_count;
+          console.log("HERE IS THE ID::: ", response[item].food_id);
+          console.log("HERE IS THE COUNT::: ", response[item].food_count);
+          const $currentCount = $(`#${response[item].food_id}`);
+          $currentCount.text($value);
+        }
+      },
+    });
+  };
+
+  const setCookie = () => {
+    console.log("INSIDE SET COOKIE AJAX REQUEST");
+    $.ajax({
+      url: `/orders`,
+      method: "GET",
+      success: (response) => {
+        console.log("SUCCESSFULL: ", response);
+        currentCookie = response.id;
+        if (response.cookie) {
+          fetchCounts();
+        }
+      },
+    });
+  };
+
+  setCookie();
+
   $(".add-food").on("submit", function (event) {
     event.preventDefault();
-    const data = $(this).serialize();
     //console.log(data);
     $.ajax({
       url: "/menu/add/11",
       method: "POST",
+    }).then(() => {
+      res.render("/menu");
     });
   });
 
   $(".minus-food").on("submit", function (event) {
     event.preventDefault();
-    const data = $(this).serialize();
-    console.log("here inside the .minus-food button");
-    //console.log(data);
+    // alert("Alert!!!");
+    //const data = $(this).serialize();
     $.ajax({
-      url: `/menu/minus/11`,
-      method: "DELETE",
+      url: "/menu/minus/11",
+      method: "POST",
+    }).then(() => {
+      res.render("/menu");
     });
   });
 });

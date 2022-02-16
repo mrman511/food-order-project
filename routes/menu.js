@@ -1,10 +1,30 @@
 const express = require("express");
+const cookieParser = require("cookie-parser");
 const router = express.Router();
+const cookieSession = require("cookie-session");
+router.use(
+  cookieSession({
+    name: "order_id",
+    keys: ["Aura smells like wet dog", "Toothless is so ruthless"],
+  })
+);
+router.use(cookieParser());
 
 module.exports = (db) => {
   router.get("/", (req, res) => {
-    db.query(`SELECT * FROM food;`)
+    // res.cookie("order_id", response);
 
+    // if (!req.cookies) {
+    //   console.log("Hello!!!");
+    //   db.query(`INSERT INTO orders (user_id) VALUES (1) RETURNING id`).then(
+    //     (response) => {
+    //       console.log("response.rows[0].id: ", response.rows[0].id);
+    //       res.cookie("order_id", response.rows[0].id);
+    //     }
+    //   );
+    // }
+
+    db.query(`SELECT food.* FROM food`)
       .then((data) => {
         const menu = data.rows;
         const drinks = [];
@@ -20,16 +40,10 @@ module.exports = (db) => {
             mains.push(menu[item]);
           }
         }
-        // db.query(`INSERT INTO order (user_id) VALUES (1)`);
+
         res.render("02_menu", { drinks, appetizers, mains });
       })
-      .then(() => {
-        return db.query(`INSERT INTO orders (user_id) VALUES (1) RETURNING id`);
-      })
-      .then((response) => {
-        //this gives us the order id so we can set a cookie
-        console.log(response);
-      })
+
       .catch((err) => {
         res.status(500).json({ error: err.message });
       });
@@ -38,19 +52,19 @@ module.exports = (db) => {
   router.post("/add/:id", (req, res) => {
     console.log("INSIDE THE ADD ROUTE BITCHES");
     const queryString = `INSERT INTO food_orders (order_id, food_id) 
-                        VALUES (1, $1)`;
+                        VALUES ($2, $1)`;
 
-    const values = [req.params.id];
+    const values = [req.params.id, req.cookies["order_id"]];
     db.query(queryString, values).then((response) => {
       console.log("Item added to order successfully");
     });
   });
 
-  router.delete("/minus/:id", (req, res) => {
+  router.post("/minus/:id", (req, res) => {
     const queryString = `DELETE FROM food_orders 
-                        WHERE order_id = 1 
+                        WHERE order_id = $2 
                         AND food_id = $1`;
-    const values = [req.params.id];
+    const values = [req.params.id, req.cookies["order_id"]];
     db.query(queryString, values)
       .then((data) => {
         console.log(`Item removed from cart`);
@@ -58,6 +72,21 @@ module.exports = (db) => {
       .catch((err) => {
         console.log("ERROR: ", err);
       });
+  });
+
+  router.get("/food_count", (req, res) => {
+    console.log("inside food count path");
+    const queryString = `SELECT food_id, COUNT(food_id) as food_count
+                       FROM orders JOIN food_orders
+                       ON order_id = orders.id
+                       WHERE orders.id = $1
+                       GROUP BY food_id`;
+    const values = [req.cookies["order_id"]];
+    console.log("/food-count values:", values);
+    db.query(queryString, values).then((response) => {
+      console.log(response.rows);
+      res.send(response.rows);
+    });
   });
 
   return router;

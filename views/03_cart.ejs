@@ -5,9 +5,10 @@
 
     <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
     <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/main.css" type="text/css" />
-    <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
     <link rel="stylesheet" href="/styles/cart.css" type="text/css" />
+
+    <!-- <link rel="stylesheet" href="/styles/main.css" type="text/css" /> -->
+    <!-- <link rel="stylesheet" href="/styles/layout.css" type="text/css" /> -->
 
     <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -29,26 +30,54 @@
       My <br />
       Cart List
     </h1>
-    <% for (let item in food) { %>
+
     <div class="cart-list-container">
-      <img id="images" src="<%= food[item].image %>" />
+      <img src="../images/tornado_potato.jpeg"  class="tornado-potato">
       <div class="food-info">
-        <p><b><%= food[item].title %></b></p>
-        <p><%= food[item].price %></p>
+        <p><b>Name</b></p>
+        <p>Price</p>
       </div>
       <div class="icons">
+      <button class="plus-button">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <button class="minus-button">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+      </div>
+    </div>
+    <div>
+
+    <!-- <% for (let item in food) { %> -->
+
+      <div class="cart-list-container">
+        <img src="../images/tornado_potato.jpeg"  class="tornado-potato">  <!--src="<%= food[item].image %>"-->
+        <div class="food-info">
+          <p><b>Name</b></p>                                  <!-- <%= food[item].title %> -->
+          <p>Price</p>                                       <!-- <%= food[item].price %>-->
+        </div>
+        <div class="icons">
         <button class="plus-button">
           <i class="fa-solid fa-plus"></i>
         </button>
         <button class="minus-button">
           <i class="fa-solid fa-minus"></i>
         </button>
+        <!-- <% } %> -->
+        </div>
       </div>
-    </div>
-    <% } %>
+      <div>
 
-    <form action="/confirmation" method="GET">
-      <button class="checkout-button" type="submit">Checkout</button>
-    </form>
+
+      <div class="total-price">
+        <h4>TOTAL</h5>
+        <h5>$80.00</h6>
+      </div>
+
+      <form action="/pay" method="GET">
+        <button class="checkout-button" type="submit">CHECKOUT</button>
+      </form>
   </body>
 </html>
+
+

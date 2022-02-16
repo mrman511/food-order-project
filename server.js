@@ -7,6 +7,8 @@ const sassMiddleware = require("./lib/sass-middleware");
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
 
 // PG database client/connection setup
 const { Pool, Query } = require("pg");
@@ -39,17 +41,19 @@ const confirmationRoutes = require("./routes/confirmation");
 const widgetsRoutes = require("./routes/widgets");
 const menuRoutes = require("./routes/menu");
 const cartRoutes = require("./routes/cart");
-
+const indexRoutes = require("./routes/index");
+const ordersRoutes = require("./routes/orders");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 
 app.use("/api/widgets", widgetsRoutes(db));
 
-
+app.use("/index", indexRoutes(db));
 app.use("/menu", menuRoutes(db));
 app.use("/cart", cartRoutes(db));
 app.use("/confirmation", confirmationRoutes(db));
+app.use("/orders", ordersRoutes(db));
 
 // Note: mount other resources here, using the same pattern above
 
@@ -61,9 +65,7 @@ app.get("/", (req, res) => {
   res.render("01_index");
 });
 //GET Menu
-app.get("/menu", (req, res) => {
-  res.render("02_menu");
-});
+
 // GET Shopping Cart
 // app.get("/cart", (req, res) => {
 //   res.render("03_cart");

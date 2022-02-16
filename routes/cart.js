@@ -23,21 +23,6 @@ module.exports = (db) => {
       });
   });
 
-  router.get("/food-count", (req, res) => {
-    const queryString = `
-    SELECT COUNT(food_id),food_orders_id
-    FROM food_orders
-    JOIN orders
-    ON order_id = orders.id
-    WHERE orders.id = $1 
-    ;`;
-    const values = req.cookies["order_id"];
-
-    db.query(queryString, values).then((response) => {
-      res.send(response.rows);
-    });
-  });
-
   return router;
 };
 
